@@ -15,8 +15,15 @@ export function ContactDetails() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                         </div>
-                        <h3 className="text-lg font-bold text-navy mb-2">Our Office</h3>
-                        <p className="text-charcoal text-sm">{contact.address}</p>
+                        <h3 className="text-lg font-bold text-navy mb-2">Our Offices</h3>
+                        <div className="space-y-4">
+                            {contact.offices.map((office) => (
+                                <div key={office.city}>
+                                    <h4 className="font-semibold text-charcoal">{office.city} Office:</h4>
+                                    <p className="text-charcoal text-sm">{office.address}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Phone */}
@@ -27,13 +34,19 @@ export function ContactDetails() {
                             </svg>
                         </div>
                         <h3 className="text-lg font-bold text-navy mb-2">Phone</h3>
-                        <div className="space-y-1">
-                            <a href={`tel:${contact.phone.primary}`} className="block text-charcoal text-sm hover:text-amber transition-colors">
-                                {contact.phone.primary}
-                            </a>
-                            <a href={`tel:${contact.phone.secondary}`} className="block text-charcoal text-sm hover:text-amber transition-colors">
-                                {contact.phone.secondary}
-                            </a>
+                        <div className="space-y-3">
+                            <div>
+                                <h4 className="font-semibold text-charcoal text-sm">Lagos Office:</h4>
+                                <a href={`tel:${contact.phone.lagos.replace(/\\s/g, "")}`} className="block text-charcoal text-sm hover:text-amber transition-colors">
+                                    {contact.phone.lagos}
+                                </a>
+                            </div>
+                            <div>
+                                <h4 className="font-semibold text-charcoal text-sm">Ibadan Office:</h4>
+                                <a href={`tel:${contact.phone.ibadan.replace(/\\s/g, "")}`} className="block text-charcoal text-sm hover:text-amber transition-colors">
+                                    {contact.phone.ibadan}
+                                </a>
+                            </div>
                         </div>
                     </div>
 

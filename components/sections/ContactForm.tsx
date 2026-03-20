@@ -161,7 +161,7 @@ export function ContactForm({ submitLabel = "Send Message" }: ContactFormProps) 
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     onBlur={() => handleBlur("phone")}
                     className="w-full px-4 py-3 rounded-lg border border-gray-light focus:border-amber focus:ring-2 focus:ring-amber/20 outline-none transition-colors text-charcoal"
-                    placeholder="+234 800 000 0000"
+                    placeholder="+234 903 642 0991"
                 />
                 {errors.phone && <p className="mt-1 text-sm text-red-500">{errors.phone}</p>}
             </div>

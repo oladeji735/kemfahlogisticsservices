@@ -12,10 +12,13 @@ export type ServiceKey =
   | "other";
 
 export type SiteContact = {
-  address: string;
+  offices: {
+    city: string;
+    address: string;
+  }[];
   phone: {
-    primary: string;
-    secondary: string;
+    lagos: string;
+    ibadan: string;
   };
   email: string;
   whatsapp: string;

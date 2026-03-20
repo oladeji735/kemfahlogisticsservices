@@ -5,13 +5,22 @@ export const siteConfig: SiteConfig = {
   shortName: "Kemfah Logistics",
   tagline: "Your Cargo Moves. Globally. Reliably.",
   contact: {
-    address: "123 Logistics Avenue, Lagos, Nigeria",
+    offices: [
+      {
+        city: "Lagos",
+        address: "5, Limpson Street off River Valley Extension, Ojodu Berger.",
+      },
+      {
+        city: "Ibadan",
+        address: "Dabiri Shoping Complex, Opposite Firstline Gas Station, Alakia, Adegbayi Area, Ibadan.",
+      }
+    ],
     phone: {
-      primary: "+234 800 000 0000",
-      secondary: "+234 800 000 0001",
+      lagos: "+234 9036420991",
+      ibadan: "+234 706 473 5651",
     },
     email: "info@kemfahlogistics.com",
-    whatsapp: "+234 800 000 0000",
+    whatsapp: "+234 9036420991",
     hours: {
       weekday: "Monday – Friday: 8:00am – 6:00pm",
       saturday: "Saturday: 9:00am – 2:00pm",
