@@ -2,25 +2,48 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a2e;
+  --navy: #1b3a6b;
+  --navy-midnight: #0f2347;
+  --navy-hover: #0f2347;
+  --amber: #e8891a;
+  --amber-hover: #d47a15;
+  --amber-light: #f5a545;
+  --sky: #edf3fa;
+  --charcoal: #1a1a2e;
+  --charcoal-muted: #4a4a5e;
+  --gray-light: #d1d5db;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-navy-midnight: var(--navy-midnight);
+  --color-navy-hover: var(--navy-hover);
+  --color-amber: var(--amber);
+  --color-amber-hover: var(--amber-hover);
+  --color-amber-light: var(--amber-light);
+  --color-sky: var(--sky);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-muted: var(--charcoal-muted);
+  --color-gray-light: var(--gray-light);
+  --color-brand-primary: var(--navy);
+  --color-brand-action: var(--amber);
+  --color-brand-surface: var(--sky);
+  --color-brand-text: var(--charcoal);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a1830;
+    --foreground: #ffffff;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
