@@ -1,16 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
-import { homepageData } from "@/lib/data/homepage";
+import type { ServiceCard } from "@/types";
 
-export function ServicesGrid() {
-  const { services } = homepageData;
+interface ServicesGridProps {
+  heading?: string;
+  services: ServiceCard[];
+}
 
+export function ServicesGrid({
+  heading = "End-to-End Logistics. Domestic and International.",
+  services,
+}: ServicesGridProps) {
   return (
     <section className="bg-sky py-20" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 id="services-heading" className="text-3xl md:text-4xl font-bold text-navy">
-            End-to-End Logistics. Domestic and International.
+            {heading}
           </h2>
         </div>
 
@@ -20,16 +26,16 @@ export function ServicesGrid() {
               <div className="h-48 relative" role="img" aria-label={`
                 ${service.key === 'road_freight' ? 'Road freight truck transporting cargo across Nigeria' :
                   service.key === 'marine_transport' ? 'Marine cargo ship at Nigerian port for sea freight' :
-                  service.key === 'international_air_cargo' ? 'International air cargo plane for global shipping' :
-                  'Cargo container at port for clearing and forwarding'}
+                    service.key === 'international_air_cargo' ? 'International air cargo plane for global shipping' :
+                      'Cargo container at port for clearing and forwarding'}
               `}>
                 <Image
                   src={service.imageSrc}
                   alt={
                     service.key === 'road_freight' ? 'Road freight truck transporting cargo across Nigeria' :
-                    service.key === 'marine_transport' ? 'Marine cargo ship at Nigerian port for sea freight' :
-                    service.key === 'international_air_cargo' ? 'International air cargo plane for global shipping' :
-                    'Cargo container at port for clearing and forwarding'
+                      service.key === 'marine_transport' ? 'Marine cargo ship at Nigerian port for sea freight' :
+                        service.key === 'international_air_cargo' ? 'International air cargo plane for global shipping' :
+                          'Cargo container at port for clearing and forwarding'
                   }
                   fill
                   className="object-cover"

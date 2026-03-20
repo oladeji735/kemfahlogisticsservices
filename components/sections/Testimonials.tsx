@@ -1,14 +1,20 @@
-import { homepageData } from "@/lib/data/homepage";
+import type { Testimonial } from "@/types";
 
-export function Testimonials() {
-  const { testimonials } = homepageData;
+interface TestimonialsProps {
+  testimonials: Testimonial[];
+  heading?: string;
+}
 
+export function Testimonials({
+  testimonials,
+  heading = "What Our Clients Say",
+}: TestimonialsProps) {
   return (
     <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-navy">
-            What Our Clients Say
+            {heading}
           </h2>
         </div>
 
@@ -25,7 +31,6 @@ export function Testimonials() {
               <p className="text-gray-700 mb-4 italic">&ldquo;{testimonial.quote}&rdquo;</p>
               <div>
                 <p className="font-semibold text-navy">{testimonial.name}</p>
-                <p className="text-sm text-gray-500">{testimonial.company}</p>
               </div>
             </div>
           ))}

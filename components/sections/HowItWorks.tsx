@@ -1,17 +1,33 @@
-import { servicesData } from "@/lib/data/services";
+interface HowItWorksStep {
+  step: number;
+  title: string;
+  description: string;
+}
 
-export function HowItWorks() {
-  const { howItWorks } = servicesData;
+interface HowItWorksProps {
+  heading?: string;
+  subheading?: string;
+  steps: HowItWorksStep[];
+  ctaLabel?: string;
+  ctaHref?: string;
+}
 
+export function HowItWorks({
+  heading = "How It Works",
+  subheading = "Three simple steps to move your cargo anywhere in Nigeria or internationally.",
+  steps,
+  ctaLabel = "Get Started Today",
+  ctaHref = "/contact",
+}: HowItWorksProps) {
   return (
     <section className="bg-white py-20" aria-labelledby="how-it-works-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 id="how-it-works-heading" className="text-3xl md:text-4xl font-bold text-navy">
-            How It Works
+            {heading}
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Three simple steps to move your cargo anywhere in Nigeria or internationally.
+            {subheading}
           </p>
         </div>
 
@@ -20,7 +36,7 @@ export function HowItWorks() {
           <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-amber/30 -translate-y-1/2" aria-hidden="true" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            {howItWorks.map((step, index) => (
+            {steps.map((step, index) => (
               <div key={step.step} className="relative">
                 <div className="bg-sky rounded-lg p-8 text-center relative z-10 h-full">
                   {/* Step number badge */}
@@ -52,7 +68,7 @@ export function HowItWorks() {
                 </div>
 
                 {/* Arrow connector for mobile */}
-                {index < howItWorks.length - 1 && (
+                {index < steps.length - 1 && (
                   <div className="md:hidden flex justify-center my-4">
                     <svg className="w-6 h-6 text-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -65,8 +81,8 @@ export function HowItWorks() {
         </div>
 
         <div className="mt-12 text-center">
-          <a href="/contact" className="inline-flex items-center gap-2 text-amber font-semibold hover:text-amber-hover transition-colors">
-            Get Started Today
+          <a href={ctaHref} className="inline-flex items-center gap-2 text-amber font-semibold hover:text-amber-hover transition-colors">
+            {ctaLabel}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

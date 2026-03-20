@@ -5,7 +5,8 @@
   --foreground: #1a1a2e;
   --navy: #1b3a6b;
   --navy-midnight: #0f2347;
-  --navy-hover: #0f2347;
+  --midnight: #0f2347;
+  --navy-hover: #142d55;
   --amber: #e8891a;
   --amber-hover: #d47a15;
   --amber-light: #f5a545;
@@ -20,6 +21,7 @@
   --color-foreground: var(--foreground);
   --color-navy: var(--navy);
   --color-navy-midnight: var(--navy-midnight);
+  --color-midnight: var(--midnight);
   --color-navy-hover: var(--navy-hover);
   --color-amber: var(--amber);
   --color-amber-hover: var(--amber-hover);

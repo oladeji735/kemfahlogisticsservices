@@ -57,7 +57,7 @@ export type ServiceCard = {
 
 export type Testimonial = {
   name: string;
-  company: string;
+  company?: string;
   quote: string;
   rating: 1 | 2 | 3 | 4 | 5;
 };

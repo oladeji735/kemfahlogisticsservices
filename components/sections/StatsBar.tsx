@@ -1,18 +1,18 @@
-import { homepageData } from "@/lib/data/homepage";
+interface StatItem {
+  label: string;
+  value: string;
+}
 
-const capabilityStats = [
-  { label: "Nationwide Coverage", value: "36" },
-  { label: "International Routing", value: "12+" },
-  { label: "Fleet Ready", value: "15" },
-  { label: "On-Time Delivery", value: "100%" },
-];
+interface StatsBarProps {
+  stats: StatItem[];
+}
 
-export function StatsBar() {
+export function StatsBar({ stats }: StatsBarProps) {
   return (
     <section className="bg-midnight py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {capabilityStats.map((stat) => (
+          {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-white">
                 {stat.value}

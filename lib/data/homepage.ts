@@ -81,23 +81,20 @@ export const homepageData: HomepageData = {
   testimonials: [
     {
       name: "Adeola Williams",
-      company: "Manufacturing (Nigeria)",
       quote:
-        "Clear communication, transparent pricing, and reliable delivery. That's exactly what we needed.",
+        "We needed our shipment cleared through Apapa before the long weekend. Kemfah handled all the documentation and had our goods out in 48 hours — no unofficial charges, no stress. That kind of reliability is hard to find.",
       rating: 5,
     },
     {
       name: "Ibrahim Musa",
-      company: "Import & Export",
       quote:
-        "Their documentation support made clearing and forwarding much easier than we expected.",
+        "I was skeptical about using a logistics company for international air cargo, but Kemfah routed our goods to Dubai with the proper paperwork sorted end-to-end. They followed up at every stage without me having to chase anyone.",
       rating: 5,
     },
     {
       name: "Chidinma Okafor",
-      company: "SME Retail",
       quote:
-        "Fast response time and consistent updates. I always knew who to call and what to expect.",
+        "We've used three other logistics companies before Kemfah. None of them picked up the phone when things went sideways. Kemfah gave us one point of contact and kept us updated from Kano to our Lagos warehouse. We're not looking elsewhere.",
       rating: 5,
     },
   ],

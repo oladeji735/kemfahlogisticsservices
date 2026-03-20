@@ -1,19 +1,34 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { homepageData } from "@/lib/data/homepage";
 
-export function Hero() {
-  const { hero } = homepageData;
+interface HeroProps {
+  headline: string;
+  subheadline: string;
+  ctaPrimary: string;
+  ctaPrimaryHref?: string;
+  ctaSecondary: string;
+  ctaSecondaryHref?: string;
+  imageSrc: string;
+}
 
+export function Hero({
+  headline,
+  subheadline,
+  ctaPrimary,
+  ctaPrimaryHref = "/contact",
+  ctaSecondary,
+  ctaSecondaryHref = "/services",
+  imageSrc,
+}: HeroProps) {
   return (
-    <section 
+    <section
       className="relative min-h-[70vh] flex items-center bg-navy pt-16 overflow-hidden"
       aria-labelledby="hero-heading"
     >
       {/* Background with image and overlay */}
       <div className="absolute inset-0" aria-hidden="true">
         <Image
-          src="/images/stock/hero-cargo.jpg"
+          src={imageSrc}
           alt="Cargo trucks and shipping containers for logistics"
           fill
           className="object-cover"
@@ -21,10 +36,10 @@ export function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy/75 to-midnight/70" />
       </div>
-      
+
       {/* Subtle grid pattern overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]" 
+      <div
+        className="absolute inset-0 opacity-[0.03]"
         aria-hidden="true"
         style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
@@ -42,35 +57,35 @@ export function Hero() {
           </div>
 
           {/* Main Headline */}
-          <h1 
+          <h1
             id="hero-heading"
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight"
           >
-            {hero.headline}
+            {headline}
           </h1>
-          
+
           {/* Subheadline */}
           <p className="mt-8 text-xl md:text-2xl text-white/70 leading-relaxed max-w-3xl mx-auto font-light">
-            {hero.subheadline}
+            {subheadline}
           </p>
-          
+
           {/* CTA Buttons */}
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              variant="primary" 
-              size="lg" 
-              href="/contact"
+            <Button
+              variant="primary"
+              size="lg"
+              href={ctaPrimaryHref}
               className="shadow-xl shadow-amber/30 hover:shadow-amber/40 transition-shadow lg:px-7 lg:py-3 lg:text-base"
             >
-              {hero.ctaPrimary}
+              {ctaPrimary}
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              href="/services" 
+            <Button
+              variant="outline"
+              size="lg"
+              href={ctaSecondaryHref}
               className="border-2 border-white/30 text-white hover:bg-white hover:text-navy hover:border-white transition-all lg:px-7 lg:py-3 lg:text-base"
             >
-              {hero.ctaSecondary}
+              {ctaSecondary}
             </Button>
           </div>
 
@@ -104,10 +119,10 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Bottom wave decoration */}
-      <div className="absolute bottom-0 left-0 right-0" aria-hidden="true">
+      {/* Bottom wave decoration — hidden on mobile */}
+      <div className="hidden md:block absolute bottom-0 left-0 right-0" aria-hidden="true">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-          <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#EDF3FA"/>
+          <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#EDF3FA" />
         </svg>
       </div>
     </section>
