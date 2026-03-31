@@ -48,6 +48,7 @@ export function ContactForm({ submitLabel = "Send Message" }: ContactFormProps) 
     });
     const [errors, setErrors] = useState<FormErrors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     function validate(): FormErrors {
@@ -69,6 +70,7 @@ export function ContactForm({ submitLabel = "Send Message" }: ContactFormProps) 
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
+        setSubmitError(null);
 
         // Honeypot check
         if (form.honeypot) return;
@@ -78,10 +80,34 @@ export function ContactForm({ submitLabel = "Send Message" }: ContactFormProps) 
         if (Object.keys(validationErrors).length > 0) return;
 
         setIsSubmitting(true);
-        // TODO: Replace with actual form submission (Formspree, Resend, or server action)
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        setIsSubmitting(false);
-        setIsSubmitted(true);
+
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    name: form.name,
+                    email: form.email,
+                    phone: form.phone,
+                    service: form.service,
+                    message: form.message,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                setIsSubmitted(true);
+            } else {
+                setSubmitError(data.error || "Failed to send message. Please try again.");
+            }
+        } catch (error) {
+            setSubmitError("Network error. Please check your connection and try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
     if (isSubmitted) {
@@ -204,6 +230,21 @@ export function ContactForm({ submitLabel = "Send Message" }: ContactFormProps) 
                 />
                 {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
             </div>
+
+            {/* Submit Error */}
+            {submitError && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                    <div className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                        </svg>
+                        <div>
+                            <p className="text-sm font-medium text-red-800">Error sending message</p>
+                            <p className="text-sm text-red-600 mt-1">{submitError}</p>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Submit */}
             <Button type="submit" variant="primary" size="lg" className="w-full">
