@@ -78,6 +78,42 @@ export const homepageData: HomepageData = {
       "Get a personalised quote in 24 hours — for road, sea, or international air freight.",
     buttonLabel: "Request a Quote",
   },
+  faq: {
+    heading: "Frequently Asked Questions",
+    subheading: "Got questions? We have answers. If you do not find what you are looking for, contact us.",
+    items: [
+      {
+        question: "What services does Kemfah Logistics offer?",
+        answer:
+          "We provide end-to-end logistics solutions including road freight and haulage across Nigeria, marine and sea freight transport, international air cargo (IATA-aligned), and customs clearing and forwarding services.",
+      },
+      {
+        question: "Where do you provide services?",
+        answer:
+          "We provide nationwide coverage across all 36 states in Nigeria. Through our IATA-aligned partners, we also handle international shipments to major global destinations.",
+      },
+      {
+        question: "How do I get a quote?",
+        answer:
+          "Click 'Get a Free Quote' on our website or contact us by phone, email, or WhatsApp. Provide your cargo details and we will get back to you within 24 hours.",
+      },
+      {
+        question: "How long does delivery take within Nigeria?",
+        answer:
+          "Delivery times vary by distance. Lagos to southwest states takes 1-2 days. Northern states typically 3-5 days. We provide estimated times with every quote.",
+      },
+      {
+        question: "What are your operating hours?",
+        answer:
+          "Our office is open Monday to Friday, 8:00 AM to 6:00 PM. We also respond to urgent inquiries outside these hours via WhatsApp.",
+      },
+      {
+        question: "How can I contact you?",
+        answer:
+          "Reach us by phone, email, or WhatsApp. Use the floating WhatsApp button on the site for quick access. We have offices in Lagos and Ibadan.",
+      },
+    ],
+  },
   testimonials: [
     {
       name: "Adeola Williams",

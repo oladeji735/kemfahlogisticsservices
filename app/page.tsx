@@ -7,6 +7,7 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { CTAStrip } from "@/components/sections/CTAStrip";
+import { FAQ } from "@/components/sections/FAQ";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { homepageData } from "@/lib/data/homepage";
@@ -40,6 +41,11 @@ export default function Home() {
           headline={homepageData.ctaStrip.headline}
           subheadline={homepageData.ctaStrip.subheadline}
           buttonLabel={homepageData.ctaStrip.buttonLabel}
+        />
+        <FAQ
+          heading={homepageData.faq.heading}
+          subheading={homepageData.faq.subheading}
+          items={homepageData.faq.items}
         />
         <Testimonials testimonials={homepageData.testimonials} />
       </main>

@@ -87,6 +87,14 @@ export type HomepageData = {
     subheadline: string;
     buttonLabel: string;
   };
+  faq: {
+    heading?: string;
+    subheading?: string;
+    items: {
+      question: string;
+      answer: string;
+    }[];
+  };
   testimonials: Testimonial[];
 };
 
