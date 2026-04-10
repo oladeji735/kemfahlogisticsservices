@@ -331,7 +331,7 @@ export function QuoteForm({
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-charcoal mb-1">Phone Number *</label>
-                        <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 py-3 rounded-lg border border-gray-light focus:border-amber focus:ring-2 focus:ring-amber/20 outline-none transition-colors text-charcoal" placeholder="+234 903 642 0991" />
+                        <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 py-3 rounded-lg border border-gray-light focus:border-amber focus:ring-2 focus:ring-amber/20 outline-none transition-colors text-charcoal" placeholder="08160047436" />
                         {stepErrors.phone && <p className="mt-1 text-sm text-red-500">{stepErrors.phone}</p>}
                     </div>
                     <div>

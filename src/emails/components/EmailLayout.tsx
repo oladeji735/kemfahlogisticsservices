@@ -104,13 +104,25 @@ export function EmailLayout({ children, previewText }: EmailLayoutProps) {
             }}>
               Your Cargo Moves. Globally. Reliably.
             </Text>
-            <Text style={{
-              color: brandColors.charcoalMuted,
-              fontSize: "12px",
-              margin: "0 0 8px 0",
-            }}>
-              Lagos: +234 903 642 0991 | Ibadan: +234 706 473 5651
-            </Text>
+ <Text style={{
+ color: brandColors.charcoalMuted,
+ fontSize: "12px",
+ margin: "0 0 8px 0",
+ }}>
+ Lagos: 08160047436 | Ibadan: 09063515584
+ </Text>
+ <Link
+ href="https://www.kemfahlogistics.com"
+ style={{
+ color: brandColors.navy,
+ fontSize: "12px",
+ textDecoration: "none",
+ display: "block",
+ margin: "8px 0",
+ }}
+ >
+ www.kemfahlogistics.com
+ </Link>
             <Link
               href="mailto:info@kemfahlogistics.com"
               style={{

@@ -101,9 +101,14 @@ export function Footer() {
               )}
             </div>
           </div>
-          <div className="mt-4 text-center md:text-left text-white/40 text-xs">
-            CAC Licensed · {contact.hours.weekday}
-          </div>
+ <div className="mt-4 text-center md:text-left text-white/40 text-xs">
+ CAC Licensed · {contact.hours.weekday}
+ </div>
+ <div className="mt-2 text-center md:text-left text-white/40 text-xs">
+ <a href="https://www.kemfahlogistics.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+ www.kemfahlogistics.com
+ </a>
+ </div>
         </div>
       </div>
     </footer>
