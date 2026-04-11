@@ -20,7 +20,7 @@ export const siteConfig: SiteConfig = {
       ibadan: "09063515584",
     },
     email: "info@kemfahlogistics.com",
-    whatsapp: "08160047436",
+    whatsapp: "+12045832729",
     hours: {
       weekday: "Monday – Friday: 8:00am – 6:00pm",
       saturday: "Saturday: 9:00am – 2:00pm",
