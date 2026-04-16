@@ -83,34 +83,29 @@ export const homepageData: HomepageData = {
     subheading: "Got questions? We have answers. If you do not find what you are looking for, contact us.",
     items: [
       {
-        question: "What services does Kemfah Logistics offer?",
+        question: "What regions and locations do you service?",
         answer:
-          "We provide end-to-end logistics solutions including road freight and haulage across Nigeria, marine and sea freight transport, international air cargo (IATA-aligned), and customs clearing and forwarding services.",
+          "We provide comprehensive logistics and freight services across all 36 states in Nigeria. Internationally, we frequently service locations in Canada, specifically across Manitoba, including Winnipeg, Brandon, Winkler, Dauphin, and surrounding environs.",
       },
       {
-        question: "Where do you provide services?",
+        question: "How can I track the status of my shipment?",
         answer:
-          "We provide nationwide coverage across all 36 states in Nigeria. Through our IATA-aligned partners, we also handle international shipments to major global destinations.",
+          "Upon dispatch, you will be provided with a unique tracking number. You can use this tracking number on our website or our carrier partners' platforms to receive real-time updates regarding your shipment's transit status.",
       },
       {
-        question: "How do I get a quote?",
+        question: "Are there any prohibited items you do not transport?",
         answer:
-          "Click 'Get a Free Quote' on our website or contact us by phone, email, or WhatsApp. Provide your cargo details and we will get back to you within 24 hours.",
+          "For safety and regulatory compliance, we strictly prohibit the transportation of hazardous materials and dangerous goods. Additionally, certain specialized electronics may be restricted depending on the destination. Please contact our support team for a detailed compliance list prior to booking.",
       },
       {
-        question: "How long does delivery take within Nigeria?",
+        question: "What information is required to get a shipping quote?",
         answer:
-          "Delivery times vary by distance. Lagos to southwest states takes 1-2 days. Northern states typically 3-5 days. We provide estimated times with every quote.",
+          "To provide you with an accurate and competitive estimate, we require the following details: the total number of items, overall weight (in kg), the precise origin and destination addresses, and the specific nature of the cargo being transported.",
       },
       {
-        question: "What are your operating hours?",
+        question: "What is the difference between General Cargo and Special Cargo?",
         answer:
-          "Our office is open Monday to Friday, 8:00 AM to 6:00 PM. We also respond to urgent inquiries outside these hours via WhatsApp.",
-      },
-      {
-        question: "How can I contact you?",
-        answer:
-          "Reach us by phone, email, or WhatsApp. Use the floating WhatsApp button on the site for quick access. We have offices in Lagos and Ibadan.",
+          "General Cargo consists of standard items that do not require any specialized handling or conditions during transit. Special Cargo includes items that demand specific environmental controls, careful handling, or specialized documentation—such as perishable goods, live animals, fragile equipment, or hazardous materials.",
       },
     ],
   },
@@ -118,19 +113,19 @@ export const homepageData: HomepageData = {
     {
       name: "Adeola Williams",
       quote:
-        "We needed our shipment cleared through Apapa before the long weekend. Kemfah handled all the documentation and had our goods out in 48 hours — no unofficial charges, no stress. That kind of reliability is hard to find.",
+        "We had to get our shipment through Apapa before the long weekend started. Kemfah took care of the documentation and got our goods out in 48 hours, no 'extra' charges, no headaches. It’s rare to find that kind of reliability.",
       rating: 5,
     },
     {
       name: "Ibrahim Musa",
       quote:
-        "I was skeptical about using a logistics company for international air cargo, but Kemfah routed our goods to Dubai with the proper paperwork sorted end-to-end. They followed up at every stage without me having to chase anyone.",
+        "I wasn't sure about hiring a company for international air cargo, but Kemfah got our stuff to winnipeg with all the paperwork sorted. They actually kept me in the loop at every step, so I wasn't the one doing the chasing for once.",
       rating: 5,
     },
     {
       name: "Chidinma Okafor",
       quote:
-        "We've used three other logistics companies before Kemfah. None of them picked up the phone when things went sideways. Kemfah gave us one point of contact and kept us updated from Kano to our Lagos warehouse. We're not looking elsewhere.",
+        "Before Kemfah, we tried three other logistics outfits. None of them would even pick up the phone if there was a hitch. With Kemfah, we had one person to talk to who kept us posted from Kano all the way to the Lagos warehouse. We’re sticking with them.",
       rating: 5,
     },
   ],

@@ -36,7 +36,7 @@ export const aboutData: AboutData = {
   credentials: {
     statement:
       "Kemfah Logistics Services Limited is a duly licensed private company, registered with the Corporate Affairs Commission of Nigeria. Our licensing documentation is available upon request.",
-    cacNumber: "RC 1234567",
+    cacNumber: "RC 9388224",
     sealImageSrc: "/images/stock/cac-seal.jpg",
   },
   ctaStrip: {

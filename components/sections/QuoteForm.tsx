@@ -284,8 +284,8 @@ export function QuoteForm({
                                 {stepErrors.cargoType && <p className="mt-1 text-sm text-red-500">{stepErrors.cargoType}</p>}
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-charcoal mb-1">Estimated Weight/Volume</label>
-                                <input type="text" value={estimatedWeight} onChange={(e) => setEstimatedWeight(e.target.value)} className="w-full px-4 py-3 rounded-lg border border-gray-light focus:border-amber focus:ring-2 focus:ring-amber/20 outline-none transition-colors text-charcoal" placeholder="e.g. 5 tonnes, 20 CBM" />
+                                <label className="block text-sm font-medium text-charcoal mb-1">Estimated Weight (in KG) or Volume</label>
+                                <input type="text" value={estimatedWeight} onChange={(e) => setEstimatedWeight(e.target.value)} className="w-full px-4 py-3 rounded-lg border border-gray-light focus:border-amber focus:ring-2 focus:ring-amber/20 outline-none transition-colors text-charcoal" placeholder="e.g. 500 KG, 5 tonnes, 20 CBM" />
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-charcoal mb-1">Preferred Date</label>

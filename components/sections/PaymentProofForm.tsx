@@ -163,7 +163,7 @@ export function PaymentProofForm() {
                 {/* Weight/KG */}
                 <div>
                     <label htmlFor="weight" className="block text-sm font-medium text-charcoal mb-1">
-                        Weight / KG <span className="text-gray-400 font-normal text-xs ml-1">(Optional)</span>
+                        Total Weight (in KG) <span className="text-gray-400 font-normal text-xs ml-1">(Optional)</span>
                     </label>
                     <input
                         id="weight"

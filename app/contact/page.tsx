@@ -58,7 +58,7 @@ export default function ContactPage() {
                             </div>
 
                             {/* Quote Form */}
-                            <div>
+                            <div id="quote-section" className="scroll-mt-24">
                                 <QuoteForm
                                     headline={contactData.forms.quote.headline}
                                     confirmationMessage={contactData.forms.quote.confirmationMessage}

@@ -168,7 +168,7 @@ export function ThankYouEmail({
             )}
             {estimatedWeight && (
               <Text style={{ margin: "0 0 8px 0", fontSize: "14px", color: brandColors.charcoalMuted }}>
-                <strong>Estimated Weight/Volume:</strong> {estimatedWeight}
+                <strong>Estimated Weight (KG) / Volume:</strong> {estimatedWeight}
               </Text>
             )}
             {preferredDate && (

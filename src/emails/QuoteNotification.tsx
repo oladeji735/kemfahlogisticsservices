@@ -211,7 +211,7 @@ export function QuoteNotification({
 
             {estimatedWeight && (
               <Text style={{ margin: "0 0 8px 0", fontSize: "14px", color: brandColors.charcoal }}>
-                <strong style={{ color: brandColors.navy }}>Estimated Weight/Volume:</strong> {estimatedWeight}
+                <strong style={{ color: brandColors.navy }}>Estimated Weight (KG) / Volume:</strong> {estimatedWeight}
               </Text>
             )}
 

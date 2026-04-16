@@ -7,6 +7,27 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const EMAIL_FROM = process.env.EMAIL_FROM || "";
 const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || "";
 
+// Validate email format
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// Parse comma-separated notification emails into an array
+function getNotificationEmails(): string[] {
+  if (!NOTIFICATION_EMAIL) return [];
+  return NOTIFICATION_EMAIL
+    .split(",")
+    .map((e) => e.trim())
+    .filter((e) => {
+      if (!e) return false;
+      if (!isValidEmail(e)) {
+        console.warn(`Invalid email in NOTIFICATION_EMAIL: ${e}`);
+        return false;
+      }
+      return true;
+    });
+}
+
 // Format sender with business name
 const formatSender = (email: string) => {
   return `"Kemfah Logistics" <${email}>`;
@@ -14,8 +35,11 @@ const formatSender = (email: string) => {
 
 export async function POST(request: Request) {
   try {
+    // Parse and validate notification emails
+    const notificationEmails = getNotificationEmails();
+
     // Check environment variables
-    if (!EMAIL_FROM || !NOTIFICATION_EMAIL) {
+    if (!EMAIL_FROM || notificationEmails.length === 0) {
       console.error("Missing required environment variables: EMAIL_FROM or NOTIFICATION_EMAIL");
       return NextResponse.json(
         { success: false, error: "Server configuration error" },
@@ -67,7 +91,7 @@ export async function POST(request: Request) {
     // Send the notification email to the owner
     const response = await resend.emails.send({
       from: formatSender(EMAIL_FROM),
-      to: [NOTIFICATION_EMAIL],
+      to: notificationEmails,
       subject: `Payment Confirmation Received: ${fullName}`,
       react: PaymentProofNotification({
         fullName,
