@@ -2,7 +2,7 @@ import React from "react";
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "outline" | "ghost";
+  variant?: "primary" | "secondary" | "outline" | "outlineSecondary" | "ghost";
   size?: "sm" | "md" | "lg";
   href?: string;
   onClick?: () => void;
@@ -29,6 +29,8 @@ export function Button({
       "bg-navy text-white hover:bg-navy-hover focus:ring-navy",
     outline:
       "border-2 border-white text-white hover:bg-white/10 focus:ring-white",
+    outlineSecondary:
+      "border-2 border-gray-light bg-white text-charcoal hover:bg-gray-50 focus:ring-gray-300 shadow-sm",
     ghost:
       "text-navy hover:bg-sky focus:ring-navy",
   };

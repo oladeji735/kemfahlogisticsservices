@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 type ServiceType =
@@ -84,6 +85,14 @@ export function QuoteForm({
 }: QuoteFormProps) {
     const [step, setStep] = useState(1);
     const [selectedService, setSelectedService] = useState<ServiceType>("");
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+        if (localStorage.getItem('kemfah_quote_submitted') === 'true') {
+            setStep(4);
+        }
+    }, []);
 
     // Step 2 fields — logistics
     const [pickupLocation, setPickupLocation] = useState("");
@@ -186,6 +195,7 @@ export function QuoteForm({
             const data = await response.json();
 
             if (response.ok && data.success) {
+                localStorage.setItem('kemfah_quote_submitted', 'true');
                 setStep(4);
             } else {
                 setSubmitError(data.error || "Failed to submit quote request. Please try again.");
@@ -200,14 +210,20 @@ export function QuoteForm({
     const totalSteps = 3;
 
     return (
-        <div>
+        <div className="transition-opacity duration-300 min-h-[400px]">
             <h2 className="text-2xl md:text-3xl font-bold text-navy mb-8">{headline}</h2>
 
-            {/* Progress bar */}
-            {step < 4 && (
-                <div className="flex items-center gap-2 mb-8">
-                    {[1, 2, 3].map((s) => (
-                        <div key={s} className="flex items-center gap-2 flex-1">
+            {!isMounted ? (
+                <div className="flex justify-center items-center py-24">
+                    <div className="animate-spin w-8 h-8 rounded-full border-4 border-gray-100 border-t-amber"></div>
+                </div>
+            ) : (
+                <>
+                {/* Progress bar */}
+                {step < 4 && (
+                    <div className="flex items-center gap-2 mb-8">
+                        {[1, 2, 3].map((s) => (
+                            <div key={s} className="flex items-center gap-2 flex-1">
                             <div
                                 className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${s <= step ? "bg-amber text-white" : "bg-gray-light text-charcoal-muted"
                                     }`}
@@ -382,39 +398,50 @@ export function QuoteForm({
 
             {/* Step 4 — Confirmation */}
             {step === 4 && (
-                <div className="bg-sky rounded-xl p-8 text-center">
+                <div className="bg-sky rounded-xl p-8 text-center border-2 border-[#EDF3FA]">
                     <div className="w-16 h-16 bg-amber/20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg className="w-8 h-8 text-amber" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-navy mb-2">Quote Request Submitted!</h3>
-                    <p className="text-charcoal mb-6">{confirmationMessage}</p>
-                    <button
-                        type="button"
-                        onClick={() => {
-                            setStep(1);
-                            setSelectedService("");
-                            setPickupLocation("");
-                            setDeliveryLocation("");
-                            setCargoType("");
-                            setEstimatedWeight("");
-                            setPreferredDate("");
-                            setBriefDescription("");
-                            setTimeline("");
-                            setLocation("");
-                            setFullName("");
-                            setPhone("");
-                            setEmail("");
-                            setCompanyName("");
-                            setStepErrors({});
-                            setSubmitError(null);
-                        }}
-                        className="text-amber font-semibold hover:text-amber-hover transition-colors"
-                    >
-                        Submit Another Request →
-                    </button>
+                    <h3 className="text-xl md:text-2xl font-bold text-navy mb-2">Quote Request Submitted!</h3>
+                    <p className="text-charcoal mb-8 text-lg max-w-lg mx-auto">{confirmationMessage}</p>
+                    
+                    <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
+                        <Button 
+                            variant="outlineSecondary" 
+                            type="button"
+                            onClick={() => {
+                                localStorage.removeItem('kemfah_quote_submitted');
+                                setStep(1);
+                                setSelectedService("");
+                                setPickupLocation("");
+                                setDeliveryLocation("");
+                                setCargoType("");
+                                setEstimatedWeight("");
+                                setPreferredDate("");
+                                setBriefDescription("");
+                                setTimeline("");
+                                setLocation("");
+                                setFullName("");
+                                setPhone("");
+                                setEmail("");
+                                setCompanyName("");
+                                setStepErrors({});
+                                setSubmitError(null);
+                            }}
+                        >
+                            Request Another Quote
+                        </Button>
+                        <Link href="/payment-proof">
+                            <Button variant="primary" className="shadow-md hover:-translate-y-0.5 transition-transform">
+                                Submit Payment Proof
+                            </Button>
+                        </Link>
+                    </div>
                 </div>
+            )}
+            </>
             )}
         </div>
     );

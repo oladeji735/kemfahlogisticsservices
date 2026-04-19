@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 interface ContactFormProps {
@@ -50,6 +51,14 @@ export function ContactForm({ submitLabel = "Send Message" }: ContactFormProps) 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+        if (localStorage.getItem('kemfah_contact_submitted') === 'true') {
+            setIsSubmitted(true);
+        }
+    }, []);
 
     function validate(): FormErrors {
         const newErrors: FormErrors = {};
@@ -99,6 +108,7 @@ export function ContactForm({ submitLabel = "Send Message" }: ContactFormProps) 
             const data = await response.json();
 
             if (response.ok && data.success) {
+                localStorage.setItem('kemfah_contact_submitted', 'true');
                 setIsSubmitted(true);
             } else {
                 setSubmitError(data.error || "Failed to send message. Please try again.");
@@ -110,22 +120,56 @@ export function ContactForm({ submitLabel = "Send Message" }: ContactFormProps) 
         }
     }
 
+    if (!isMounted) {
+        return (
+            <div className="flex justify-center items-center py-24 min-h-[400px]">
+                <div className="animate-spin w-8 h-8 rounded-full border-4 border-gray-100 border-t-amber"></div>
+            </div>
+        );
+    }
+
     if (isSubmitted) {
         return (
-            <div className="bg-sky rounded-xl p-8 text-center">
+            <div className="bg-sky rounded-xl p-8 text-center border-2 border-[#EDF3FA] min-h-[400px] flex flex-col justify-center">
                 <div className="w-16 h-16 bg-amber/20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg className="w-8 h-8 text-amber" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-2">Message Sent!</h3>
-                <p className="text-charcoal">We&apos;ll get back to you within 24 hours.</p>
+                <h3 className="text-xl md:text-2xl font-bold text-navy mb-2">Message Sent!</h3>
+                <p className="text-charcoal mb-8 text-lg max-w-lg mx-auto">We&apos;ll get back to you within 24 hours.</p>
+
+                <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
+                    <Button 
+                        variant="outlineSecondary" 
+                        type="button"
+                        onClick={() => {
+                            localStorage.removeItem('kemfah_contact_submitted');
+                            setIsSubmitted(false);
+                            setForm({
+                                name: "",
+                                email: "",
+                                phone: "",
+                                service: "",
+                                message: "",
+                                honeypot: "",
+                            });
+                        }}
+                    >
+                        Send Another Message
+                    </Button>
+                    <Link href="/payment-proof">
+                        <Button variant="primary" className="shadow-md hover:-translate-y-0.5 transition-transform">
+                            Submit Payment Proof
+                        </Button>
+                    </Link>
+                </div>
             </div>
         );
     }
 
     return (
-        <form onSubmit={handleSubmit} noValidate className="space-y-5">
+        <form onSubmit={handleSubmit} noValidate className="space-y-5 transition-opacity duration-300 min-h-[400px]">
             {/* Honeypot */}
             <div className="hidden" aria-hidden="true">
                 <input

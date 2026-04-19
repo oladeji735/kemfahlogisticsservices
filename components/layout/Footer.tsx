@@ -7,6 +7,7 @@ const quickLinks = [
   { label: "Services", href: "/services" },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "Submit Payment Proof", href: "/payment-proof" },
 ];
 
 export function Footer() {

@@ -9,8 +9,8 @@ export const servicesData: ServicesData = {
   internationalAirCargo: {
     headline: "International Air Cargo — IATA-Aligned",
     description:
-      "As an IATA-aligned logistics partner, Kemfah facilitates international air cargo bookings and freight documentation across major global corridors. Whether you are moving goods from Lagos to London, Abuja to Dubai, or Kano to Hong Kong — our team handles routing, documentation, and delivery coordination end to end.",
-    routes: ["Lagos → London", "Abuja → Dubai", "Kano → Hong Kong"],
+      "As an IATA-aligned logistics partner, Kemfah facilitates international air cargo bookings and freight documentation across major global corridors. Whether you are moving goods from Lagos to London, USA, or Canada — our team handles routing, documentation, and delivery coordination end to end.",
+    routes: ["Lagos → London", "Nigeria → USA", "Nigeria → Canada"],
   },
   serviceCards: [
     {
@@ -45,10 +45,10 @@ export const servicesData: ServicesData = {
   coverage: {
     nigeria: {
       label: "Nationwide Coverage (36 States)",
-      note: "We coordinate pickup and delivery across Nigeria — including remote routes and major commercial hubs.",
+      note: "We coordinate pickup and delivery across all states in Nigeria — including major hubs like Ondo, Ogun, Ekiti, Akure, Ilorin, Kano, and Kaduna.",
       imageSrc: "/images/stock/nigeria-map.jpg",
     },
-    internationalCorridors: ["London", "Dubai", "Hong Kong", "Amsterdam", "New York"],
+    internationalCorridors: ["London, UK", "USA", "Canada"],
   },
   howItWorks: [
     {

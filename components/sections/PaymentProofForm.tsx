@@ -196,22 +196,25 @@ export function PaymentProofForm() {
 
             {/* Receipt Upload */}
             <div>
-                <label htmlFor="receipt" className="block text-sm font-medium text-charcoal mb-1">
+                <span className="block text-sm font-medium text-charcoal mb-1">
                     Upload Payment Receipt <span className="text-red-500">*</span>
-                </label>
-                <div className={`mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed rounded-lg transition-colors ${errors.receipt ? 'border-red-300 bg-red-50' : 'border-gray-light hover:border-amber/50 bg-sky/50'}`}>
+                </span>
+                <label 
+                    htmlFor="receipt"
+                    className={`mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed rounded-lg transition-colors cursor-pointer group ${errors.receipt ? 'border-red-300 bg-red-50' : 'border-gray-light hover:border-amber/50 bg-sky/50 hover:bg-sky'}`}
+                >
                     <div className="space-y-1 text-center">
-                        <svg className="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                        <svg className="mx-auto h-12 w-12 text-gray-400 group-hover:text-amber/70 transition-colors" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                             <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <div className="flex text-sm text-gray-600 justify-center">
-                            <label htmlFor="receipt" className="relative cursor-pointer bg-white rounded-md font-medium text-amber hover:text-amber/80 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-amber px-1">
+                        <div className="flex text-sm text-gray-600 justify-center pointer-events-none">
+                            <span className="relative rounded-md font-medium text-amber group-hover:text-amber/80 transition-colors">
                                 <span>Upload a file</span>
                                 <input 
                                     id="receipt" 
                                     name="receipt" 
                                     type="file" 
-                                    className="sr-only" 
+                                    className="sr-only pointer-events-auto" 
                                     accept="image/png, image/jpeg, image/jpg, application/pdf"
                                     ref={fileInputRef}
                                     onChange={(e) => {
@@ -222,14 +225,14 @@ export function PaymentProofForm() {
                                         }
                                     }}
                                 />
-                            </label>
+                            </span>
                             <p className="pl-1">or drag and drop</p>
                         </div>
                         <p className="text-xs text-gray-500">
                             PNG, JPG, or PDF up to 10MB
                         </p>
                     </div>
-                </div>
+                </label>
                 {form.receipt && (
                     <div className="mt-2 text-sm text-navy bg-sky py-2 px-3 rounded-md flex items-center border border-blue-100">
                         <svg className="w-4 h-4 mr-2 text-amber shrink-0" fill="currentColor" viewBox="0 0 20 20">
