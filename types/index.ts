@@ -51,11 +51,31 @@ export type StatItem = {
   suffix?: string;
 };
 
+export type ServiceStat = {
+  label: string;
+  value: string;
+};
+
 export type ServiceCard = {
   key: ServiceKey;
+  slug: string;
   title: string;
   description: string;
   imageSrc: string;
+};
+
+export type ServiceDetail = {
+  slug: string;
+  key: string;
+  title: string;
+  tagline: string;
+  badge?: string;
+  description: string;
+  heroImage: string;
+  features: string[];
+  stats: ServiceStat[];
+  routes?: string[];
+  cta: string;
 };
 
 export type Testimonial = {
@@ -131,11 +151,7 @@ export type ServicesData = {
     subheadline: string;
     imageSrc: string;
   };
-  internationalAirCargo: {
-    headline: string;
-    description: string;
-    routes: string[];
-  };
+  serviceDetails: ServiceDetail[];
   serviceCards: ServiceCard[];
   coverage: {
     nigeria: {

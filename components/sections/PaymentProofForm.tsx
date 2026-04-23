@@ -84,7 +84,7 @@ export function PaymentProofForm() {
             } else {
                 setSubmitError(data.error || "Failed to submit payment details. Please try again.");
             }
-        } catch (error) {
+        } catch (_error) {
             setSubmitError("Network error. Please check your connection and try again.");
         } finally {
             setIsSubmitting(false);

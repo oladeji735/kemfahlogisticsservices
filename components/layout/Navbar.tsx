@@ -13,10 +13,10 @@ const navLinks = [
 ];
 
 const serviceLinks = [
-  { label: "Logistics & Freight", href: "/services#logistics" },
-  { label: "Marine Transport", href: "/services#marine" },
-  { label: "Clearing & Forwarding", href: "/services#clearing" },
-  { label: "Import & Export", href: "/services#import-export" },
+  { label: "International Air Cargo", href: "/services/air-cargo" },
+  { label: "Road Freight & Haulage", href: "/services/road-freight" },
+  { label: "Marine & Sea Freight", href: "/services/marine" },
+  { label: "Clearing & Forwarding", href: "/services/clearing" },
 ];
 
 export function Navbar() {
@@ -57,7 +57,7 @@ export function Navbar() {
                     </Link>
 
                     {/* Invisible bridge to prevent dropdown from losing hover */}
-                    <div className="absolute top-full left-0 pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="absolute top-full left-0 pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                       <div className="bg-navy-midnight rounded-lg shadow-xl border border-white/10 py-2">
                         {serviceLinks.map((service) => (
                           <Link

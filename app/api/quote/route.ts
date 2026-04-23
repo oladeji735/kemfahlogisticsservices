@@ -70,17 +70,9 @@ interface OtherFormData {
 
 type QuoteFormData = LogisticsFormData | OtherFormData;
 
-const logisticsServices = [
-  "road_freight",
-  "international_air_cargo",
-  "marine",
-  "clearing_forwarding",
-  "general_supply",
-];
 
-function isLogisticsService(service: string): boolean {
-  return logisticsServices.includes(service);
-}
+
+
 
 function validateEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);

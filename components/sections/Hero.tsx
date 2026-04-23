@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { HomepageTrackingWidget } from "@/components/sections/HomepageTrackingWidget";
 
 interface HeroProps {
   headline: string;
@@ -90,6 +91,9 @@ export function Hero({
               {ctaSecondary}
             </Button>
           </div>
+
+          {/* Tracking Widget */}
+          <HomepageTrackingWidget />
 
           {/* Trust indicators - 3 columns */}
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">

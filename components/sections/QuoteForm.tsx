@@ -200,7 +200,7 @@ export function QuoteForm({
             } else {
                 setSubmitError(data.error || "Failed to submit quote request. Please try again.");
             }
-        } catch (error) {
+        } catch (_error) {
             setSubmitError("Network error. Please check your connection and try again.");
         } finally {
             setIsSubmitting(false);

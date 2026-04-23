@@ -113,7 +113,7 @@ export function ContactForm({ submitLabel = "Send Message" }: ContactFormProps) 
             } else {
                 setSubmitError(data.error || "Failed to send message. Please try again.");
             }
-        } catch (error) {
+        } catch (_error) {
             setSubmitError("Network error. Please check your connection and try again.");
         } finally {
             setIsSubmitting(false);
