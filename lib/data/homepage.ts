@@ -18,6 +18,7 @@ export const homepageData: HomepageData = {
   services: [
     {
       key: "road_freight",
+      slug: "road-freight",
       title: "Road Freight & Haulage",
       description:
         "Nationwide haulage across Nigeria with careful handling and consistent updates.",
@@ -25,6 +26,7 @@ export const homepageData: HomepageData = {
     },
     {
       key: "marine_transport",
+      slug: "marine",
       title: "Marine & Sea Freight",
       description:
         "Port-to-port support, lighter services, and coordination for bulk cargo moving by sea.",
@@ -32,6 +34,7 @@ export const homepageData: HomepageData = {
     },
     {
       key: "international_air_cargo",
+      slug: "air-cargo",
       title: "International Air Cargo",
       description:
         "IATA-aligned routing and documentation support across major international corridors.",
@@ -39,6 +42,7 @@ export const homepageData: HomepageData = {
     },
     {
       key: "clearing_forwarding",
+      slug: "clearing",
       title: "Clearing & Forwarding",
       description:
         "Customs documentation, port clearance, and delivery coordination without surprises.",
