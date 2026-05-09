@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { HomepageTrackingWidget } from "@/components/sections/HomepageTrackingWidget";
 
+const blurDataURL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCQABmX/9k=";
+
 interface HeroProps {
   headline: string;
   subheadline: string;
@@ -23,19 +25,22 @@ export function Hero({
 }: HeroProps) {
   return (
     <section
-      className="relative min-h-[70vh] flex items-center bg-navy pt-16 overflow-hidden"
+      className="relative min-h-[70vh] flex items-center pt-16 overflow-hidden"
       aria-labelledby="hero-heading"
+      style={{ backgroundColor: '#0f172a' }}
     >
       {/* Background with image and overlay */}
-      <div className="absolute inset-0" aria-hidden="true">
+      <div className="absolute inset-0 bg-navy" aria-hidden="true">
         <Image
           src={imageSrc}
           alt="Cargo trucks and shipping containers for logistics"
           fill
           className="object-cover"
+          placeholder="blur"
+          blurDataURL={blurDataURL}
           priority
           sizes="100vw"
-          quality={80}
+          quality={75}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy/75 to-midnight/70" />
       </div>

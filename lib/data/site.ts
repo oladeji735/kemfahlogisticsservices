@@ -16,8 +16,8 @@ export const siteConfig: SiteConfig = {
       }
     ],
     phone: {
-      lagos: "08160047436",
-      ibadan: "09063515584",
+      lagos: "+234-816-004-7436",
+      ibadan: "+234-906-351-5584",
     },
     email: "info@kemfahlogistics.com",
     whatsapp: "+12045832729",

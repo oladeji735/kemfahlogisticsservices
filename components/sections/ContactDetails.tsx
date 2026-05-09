@@ -37,13 +37,13 @@ export function ContactDetails() {
                         <div className="space-y-3">
                             <div>
                                 <h4 className="font-semibold text-charcoal text-sm">Lagos Office:</h4>
-                                <a href={`tel:${contact.phone.lagos.replace(/\\s/g, "")}`} className="block text-charcoal text-sm hover:text-amber transition-colors">
+                                <a href={`tel:${contact.phone.lagos.replace(/[-\s]/g, "")}`} className="block text-charcoal text-sm hover:text-amber transition-colors">
                                     {contact.phone.lagos}
                                 </a>
                             </div>
                             <div>
                                 <h4 className="font-semibold text-charcoal text-sm">Ibadan Office:</h4>
-                                <a href={`tel:${contact.phone.ibadan.replace(/\\s/g, "")}`} className="block text-charcoal text-sm hover:text-amber transition-colors">
+                                <a href={`tel:${contact.phone.ibadan.replace(/[-\s]/g, "")}`} className="block text-charcoal text-sm hover:text-amber transition-colors">
                                     {contact.phone.ibadan}
                                 </a>
                             </div>

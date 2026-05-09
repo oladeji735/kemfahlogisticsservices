@@ -105,7 +105,7 @@ export function ContactNotification({
         <Text style={{ margin: "0 0 8px 0", fontSize: "14px", color: brandColors.charcoal }}>
           <strong style={{ color: brandColors.navy }}>Phone:</strong>{" "}
           <Link
-            href={`tel:${phone.replace(/\s/g, "")}`}
+            href={`tel:${phone.replace(/[-\s]/g, "")}`}
             style={{
               color: brandColors.amber,
               textDecoration: "none",
